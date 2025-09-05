@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: {{ .Values.frontend.deployment.repository}}:{{ .Values.frontend.deployment.tag}}
+        image: "{{ .Values.frontend.deployment.repository}}:{{ .Values.frontend.deployment.tag}}"
         ports:
         - containerPort: 80
         env:
