@@ -1,3 +1,4 @@
 apiVersion: v2
 name: shopping-mall
+description: shopping-mall
 version: 0.0.1
