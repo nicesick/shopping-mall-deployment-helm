@@ -19,9 +19,9 @@ spec:
         image: "{{ .Values.frontend.deployment.repository}}:{{ .Values.frontend.deployment.tag}}"
         ports:
         - containerPort: 80
-        envFrom:
-        - configMapRef:
-            name: frontend-config
+        env:
+        - name: REACT_APP_API_BASE_URL
+          value: {{ .Values.frontend.baseurl | default "http://backend.example.com" }}
         readinessProbe:
           httpGet:
             path: /healthz
@@ -49,10 +49,3 @@ spec:
     protocol: TCP
   selector:
     app: frontend
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: frontend-config
-  data:
-    REACT_APP_API_BASE_URL: {{ .Values.frontend.baseurl | default "http://backend.example.com" }}
