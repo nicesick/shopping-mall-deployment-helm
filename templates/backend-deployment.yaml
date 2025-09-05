@@ -5,7 +5,7 @@ metadata:
   labels:
     app: backend
 spec:
-  replicas: {{ .Value.backend.deployment.replicas}}
+  replicas: {{ .Values.backend.deployment.replicas}}
   selector:
     matchLabels:
       app: backend
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: {{ .Value.backend.deployment.repository}}:{{ .Value.backend.deployment.tag}}
+        image: {{ .Values.backend.deployment.repository}}:{{ .Values.backend.deployment.tag}}
         ports:
         - containerPort: 8000
         env:
@@ -46,7 +46,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - port: {{ .Value.backend.service.port}}
+  - port: {{ .Values.backend.service.port}}
     targetPort: 8000
     protocol: TCP
   selector:

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: frontend
 spec:
-  replicas: {{ .Value.frontend.deployment.replicas}}
+  replicas: {{ .Values.frontend.deployment.replicas}}
   selector:
     matchLabels:
       app: frontend
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: {{ .Value.frontend.deployment.repository}}:{{ .Value.frontend.deployment.tag}}
+        image: {{ .Values.frontend.deployment.repository}}:{{ .Values.frontend.deployment.tag}}
         ports:
         - containerPort: 80
         env:
@@ -44,7 +44,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - port: {{ .Value.frontend.service.port}}
+  - port: {{ .Values.frontend.service.port}}
     targetPort: 80
     protocol: TCP
   selector:
@@ -55,4 +55,4 @@ kind: ConfigMap
 metadata:
   name: frontend-config
   data:
-    REACT_APP_API_BASE_URL: {{ .Value.frontend.baseurl}}
+    REACT_APP_API_BASE_URL: {{ .Values.frontend.baseurl}}
