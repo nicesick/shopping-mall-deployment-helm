@@ -1,0 +1,29 @@
+backend:
+  deployment:
+    replicas: 1
+    repository: ""
+    tag: ""
+    resources:
+      requests:
+        cpu: 500m
+        memory: 256Mi
+      limits:
+        cpu: 500m
+        memory: 256Mi
+  service:
+    port: 8000
+frontend:
+  deployment:
+    replicas: 1
+    repository: ""
+    tag: ""
+    resources:
+      requests:
+        cpu: 500m
+        memory: 256Mi
+      limits:
+        cpu: 500m
+        memory: 256Mi
+  service:
+    port: 80
+  base-url: ""
