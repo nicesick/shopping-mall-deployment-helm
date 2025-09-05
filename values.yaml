@@ -26,4 +26,4 @@ frontend:
         memory: 256Mi
   service:
     port: 80
-  base-url: ""
+  baseurl: ""
