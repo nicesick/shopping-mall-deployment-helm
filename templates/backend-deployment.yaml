@@ -24,6 +24,8 @@ spec:
           value: "0.0.0.0"
         - name: PORT
           value: "8000"
+        - name: baseurl
+          value: {{ .Values.backend.baseurl}}
         readinessProbe:
           httpGet:
             path: /
