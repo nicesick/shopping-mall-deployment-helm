@@ -12,6 +12,7 @@ backend:
         memory: 256Mi
   service:
     port: 8000
+  baseurl: ""
 frontend:
   deployment:
     replicas: 1
